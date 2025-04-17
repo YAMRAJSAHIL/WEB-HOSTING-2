@@ -1,1 +1,33 @@
+# Core Flask Application
+Flask==2.3.2
+Werkzeug==2.3.7
+python-dotenv==1.0.0
+gunicorn==20.1.0
 
+# Complete Python-Telegram-Bot Ecosystem
+python-telegram-bot==20.3  # Main package
+telebot 
+aiohttp
+httpx==0.24.1              # Async HTTP client
+cryptography==39.0.1       # Security/encryption
+APScheduler==3.10.1        # For scheduled tasks
+cachetools==5.3.0          # Caching support
+tornado==6.3.2             # Web server for webhooks
+
+# Telegram Media/File Handling
+Pillow==9.5.0              # Image processing
+python-magic==0.4.27       # File type detection
+ffmpeg-python==0.2.0       # Video/audio processing
+
+# Additional Useful Extensions
+emoji==2.2.0               # Emoji support
+pytz==2023.3               # Timezone handling
+tzlocal==4.3               # Local timezone detection
+
+# Database Support (Optional)
+SQLAlchemy==2.0.15         # ORM support
+redis==4.5.4               # For rate limiting/storage
+
+# Security
+bcrypt==4.0.1              # Password hashing
+PyJWT==2.6.0               # JWT tokens
