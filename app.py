@@ -54,7 +54,7 @@ def register():
         
         users[username] = {
             'password': password,  # In production, use proper password hashing
-            'is_admin': True  # First user becomes admin
+            'is_admin': False  # First user becomes admin
         }
         
         # First user is admin
@@ -120,7 +120,7 @@ def dashboard():
                          files=files,
                          processes=user_processes,
                          announcements=announcements,
-                         is_admin=session.get('is_admin', True))
+                         is_admin=session.get('is_admin', False))
 
 @app.route('/upload', methods=['POST'])
 def upload_file():
