@@ -120,7 +120,7 @@ def dashboard():
                          files=files,
                          processes=user_processes,
                          announcements=announcements,
-                         is_admin=session.get('is_admin', False))
+                         is_admin=session.get('is_admin', true))
 
 @app.route('/upload', methods=['POST'])
 def upload_file():
