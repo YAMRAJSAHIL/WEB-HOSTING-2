@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+
+{% block title %}Logs - {{ filename }}{% endblock %}
+
+{% block content %}
+    <h1>Logs for {{ filename }}</h1>
+    <p>Status: <span class="status-{{ status }}">{{ status }}</span></p>
+    
+    <div class="log-container">
+        <pre>{{ logs }}</pre>
+    </div>
+    
+    <a href="{{ url_for('dashboard') }}" class="btn">Back to Dashboard</a>
+{% endblock %}
