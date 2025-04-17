@@ -54,7 +54,7 @@ def register():
         
         users[username] = {
             'password': password,  # In production, use proper password hashing
-            'is_admin': False  # First user becomes admin
+            'is_admin': true  # First user becomes admin
         }
         
         # First user is admin
