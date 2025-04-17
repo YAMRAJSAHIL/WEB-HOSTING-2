@@ -1,1 +1,65 @@
+{% extends "layout.html" %}
 
+{% block title %}Admin Panel{% endblock %}
+
+{% block content %}
+    <h1>Admin Panel</h1>
+    
+    <section class="admin-section">
+        <h2>Make Announcement</h2>
+        <form method="POST" action="{{ url_for('make_announcement') }}">
+            <textarea name="message" placeholder="Your announcement message" required></textarea>
+            <button type="submit" class="btn">Post Announcement</button>
+        </form>
+    </section>
+    
+    <section class="admin-section">
+        <h2>System Statistics</h2>
+        <div class="stats">
+            <div class="stat-card">
+                <h3>Total Users</h3>
+                <p>{{ users|length }}</p>
+            </div>
+            <div class="stat-card">
+                <h3>Running Processes</h3>
+                <p>{{ processes|length }}</p>
+            </div>
+        </div>
+    </section>
+    
+    <section class="admin-section">
+        <h2>User Management</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Username</th>
+                    <th>Status</th>
+                    <th>Processes</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for username, user in users.items() %}
+                    <tr>
+                        <td>{{ username }}</td>
+                        <td>
+                            {% if user.get('is_admin') %}
+                                Admin
+                            {% else %}
+                                User
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% set user_processes = [] %}
+                            {% for pid, process in processes.items() %}
+                                {% if process.username == username %}
+                                    {% do user_processes.append(process) %}
+                                {% endif %}
+                            {% endfor %}
+                            {{ user_processes|length }}
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </section>
+{% endblock %}
